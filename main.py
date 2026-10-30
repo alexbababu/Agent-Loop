@@ -92,8 +92,15 @@ client = OpenAI(
 MODEL = "nvidia/nemotron-3-ultra-550b-a55b:free"
 MAX_ITERATIONS = 5
 
-# Das Gedaechtnis startet leer:
-messages = []
+SYSTEM_PROMPT = (
+    "Du bist ein praeziser Assistent. Antworte immer auf Deutsch und fasse dich kurz. "
+    "Fuehre alle mathematischen Berechnungen ausnahmslos mit dem calculate-Tool durch."
+)
+
+# Das Gedaechtnis startet mit den festen Verhaltensregeln an Position 0:
+messages = [
+    {"role": "system", "content": SYSTEM_PROMPT}
+]
 
 print("Agent ist bereit! Tippe deine Frage ein ('q' oder 'exit' zum Beenden).\n")
 

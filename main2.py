@@ -42,9 +42,14 @@ llm = ChatOpenAI(
 )
 
 
+SYSTEM_PROMPT = (
+    "Du bist ein praeziser Assistent. Antworte immer auf Deutsch und fasse dich kurz. "
+    "Fuehre alle mathematischen Berechnungen ausnahmslos mit dem calculate-Tool durch."
+)
+
 # Schritt 3 in LangChain: Die Schleife (Agenten-Loop) erstellen
-# create_agent baut die innere Schleife (LLM -> Tool -> LLM -> Stop) automatisch.
-agent = create_agent(llm, tools)
+# LangChain nimmt den system_prompt direkt als Parameter entgegen:
+agent = create_agent(llm, tools, system_prompt=SYSTEM_PROMPT)
 
 # Das Gedaechtnis startet leer:
 messages = []

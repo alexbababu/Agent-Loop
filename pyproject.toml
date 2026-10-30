@@ -1,0 +1,15 @@
+[project]
+name = "agent-loop"
+version = "0.1.0"
+description = "Agent loop from scratch"
+readme = "README.md"
+requires-python = ">=3.11"
+dependencies = [
+    "langchain>=1.4.7",
+    "langchain-openai>=1.7.2",
+    "openai>=3.37.0",
+    "python-dotenv>=1.2.4",
+]
+
+[tool.uv]
+link-mode = "copy"
